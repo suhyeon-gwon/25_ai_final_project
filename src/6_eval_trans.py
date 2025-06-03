@@ -18,11 +18,10 @@ def main(args):
         candidates_corr.append(candidate_corr)
         candidates_not_corr.append(candidate_not_corr)
 
-    # BLEU 계산
     smoothie = SmoothingFunction().method4
     bleu_corr = corpus_bleu(references, candidates_corr, smoothing_function=smoothie)
     bleu_not_corr = corpus_bleu(references, candidates_not_corr, smoothing_function=smoothie)
-
+    print("trans")
     print(f"Corpus BLEU (corr_inf_answer):      {bleu_corr:.4f}")
     print(f"Corpus BLEU (not_corr_inf_answer): {bleu_not_corr:.4f}")
     
