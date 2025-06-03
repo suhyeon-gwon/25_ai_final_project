@@ -38,7 +38,7 @@ def main(args):
     # BLEU 계산
     smoothie = SmoothingFunction().method4
     bleu_corr = corpus_bleu(references, candidates_corr, smoothing_function=smoothie)
-
+    print("corr")
     print(f"Average Semantic Similarity:    {np.mean(results)}")
     print(f"Corpus BLEU (corr_inf_answer):      {bleu_corr:.4f}")
 
