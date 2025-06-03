@@ -2,7 +2,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch, json, argparse, os, random
 from tqdm import tqdm
 
-def randomize_input(input_file, rate=0.5): # randomly choose error or cor text
+def randomize_input(input_file, rate): # randomly choose error or cor text
     with open(args.input_file, 'r', encoding='utf-8') as file:
         data = json.load(file)
     
@@ -61,8 +61,8 @@ def correct_text(input_text, tokenizer_corr, model_corr, device, max_length):
     )
     return tokenizer_corr.decode(outputs[0], skip_special_tokens=True)
     
-def correct_infer(input_path, output_dir, tokenizer_corr, model_corr, device, max_length):
-    input_data = randomize_input(input_path)
+def correct_infer(input_path, output_dir, tokenizer_corr, model_corr, device, max_length, rate):
+    input_data = randomize_input(input_path, rate)
     corrected_results = []
     for d in tqdm(input_data):
         input_sentence = "<s>"+d["input"]+"</s>"
@@ -93,7 +93,8 @@ if __name__ == "__main__":
     parser.add_argument("--input_file", type=str, default="data/final/error_corr_kor_en_test.json")
     parser.add_argument("--output_dir", type=str, default="data/inferred")
     parser.add_argument("--max_length", type=int, default=512)
+    parser.add_argument("--rate", type=float, default=0.5)
     args = parser.parse_args()
 
     tokenizer, model, device = load_model(args.model_path)
-    correct_infer(args.input_file, args.output_dir, tokenizer, model, device, args.max_length)
+    correct_infer(args.input_file, args.output_dir, tokenizer, model, device, args.max_length, args.rate)
