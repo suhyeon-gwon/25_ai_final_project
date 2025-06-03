@@ -3,14 +3,14 @@ import json, argparse
 
 def main(args):
     with open(args.input_path, 'r', encoding='utf-8') as file:
-        dataset = json.load(file)[:10]  # 앞 10개만
+        dataset = json.load(file)
 
     references = []
     candidates_corr = []
     candidates_not_corr = []
 
     for data in dataset:
-        reference = [data["gold_answer"].strip().split()]  # [[...]]
+        reference = [data["gold_answer"].strip().split()] 
         candidate_corr = data["corr_inf_answer"].strip().split()
         candidate_not_corr = data["not_corr_inf_answer"].strip().split()
         
