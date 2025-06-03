@@ -10,7 +10,7 @@ def main(args):
     candidates_not_corr = []
 
     for data in dataset:
-        reference = [data["gold_answer"].strip().split()] 
+        reference = [data["gold_answer"].strip().split()]
         candidate_corr = data["corr_inf_answer"].strip().split()
         candidate_not_corr = data["not_corr_inf_answer"].strip().split()
         
