@@ -4,7 +4,7 @@ from tqdm import tqdm
 
 def randomize_input(input_file, rate=0.5): # randomly choose error or cor text
     with open(args.input_file, 'r', encoding='utf-8') as file:
-        data = json.load(file)[:10]
+        data = json.load(file)
     
     indices = list(range(len(data)))
     random.shuffle(indices)
