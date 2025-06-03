@@ -6,7 +6,7 @@ random.seed(43)
 ## --- translate ---
 def main(args):
     with open(args.input_file, 'r', encoding='utf-8') as file:
-        input_data = json.load(file)[:10]
+        input_data = json.load(file)
         
     translated_results = []
 
