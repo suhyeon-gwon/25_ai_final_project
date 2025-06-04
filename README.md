@@ -16,12 +16,19 @@ But don't forget to download the raw data from AIHub first!
 
 ## Inference
 <img width="843" alt="스크린샷 2025-06-04 오전 10 45 07" src="https://github.com/user-attachments/assets/31c773ad-2e49-42ca-8f86-da4994b77954" />
+
 - Unlike fintuning step, 50% is erroneous and the other 50% is correct. To check if the model can verify which one to correct.
 - Pipeline
   1. Correction: First apply correction step by KoBART, then put its output to the input of Opus-MT.
   2. No Correction: Directly put the input to Opus-MT.
 
 ## Result
+1. KoBERT
+- Average Semantic Similarity:    0.962903614082644
+- Corpus BLEU (corr_inf_answer):      0.7797
+2. Opus-MT
+- Corpus BLEU (corr_inf_answer):      0.7308
+- Corpus BLEU (not_corr_inf_answer): 0.6661
 
 ## Limitations
 - In this project, I assume that Opus-MT make perfect translation(to generate pseudo label). However, its translation was not that perfect...
