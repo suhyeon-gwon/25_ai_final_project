@@ -24,8 +24,8 @@ But don't forget to download the raw data from AIHub first!
 
 ## Result
 1. [KoBART](https://huggingface.co/gogamza/kobart-base-v2)
-- Average Semantic Similarity:    0.962903614082644
-- Corpus BLEU (corr_inf_answer):      0.7797
+- Average Semantic Similarity:    0.962903614082644 (error ver: 0.7382837857522311)
+- Corpus BLEU (corr_inf_answer):      0.7797 (error ver: 0.2584)
 2. [Opus-MT](https://huggingface.co/Helsinki-NLP/opus-mt-ko-en)
 - Corpus BLEU (corr_inf_answer):      0.7308
 - Corpus BLEU (not_corr_inf_answer): 0.6661
